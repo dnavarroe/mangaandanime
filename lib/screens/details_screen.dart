@@ -52,12 +52,15 @@ class _TitleAndPoster extends StatelessWidget {
               child: Row(
                 children: [
                   Flexible(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: FadeInImage(
-                        placeholder: const AssetImage('assets/loading.gif'), 
-                        image: NetworkImage(imagen),
-                        height: 150,),
+                    child: Hero(
+                      tag: anime.heroId!,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: FadeInImage(
+                          placeholder: const AssetImage('assets/loading.gif'), 
+                          image: NetworkImage(imagen),
+                          height: 150,),
+                      ),
                     ),
                   ),
               

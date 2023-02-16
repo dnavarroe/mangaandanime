@@ -60,6 +60,8 @@ class Anime {
     //int averageEpisodeDuration;
     //String rating;
     //List<String> studios;
+
+    String? heroId;
     
     get fullPosterImg{
       if ( mainPicture != null) {

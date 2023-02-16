@@ -62,7 +62,7 @@ class _AnimeSliderState extends State<AnimeSlider> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final anime = widget.animes[index];
-                return _AnimeSliderImg(anime: anime,);
+                return _AnimeSliderImg(anime: anime, heroId: '${anime.node.title}-${index}-${anime.node.id}',);
               }
             ),
           )
@@ -75,11 +75,14 @@ class _AnimeSliderState extends State<AnimeSlider> {
 
 class _AnimeSliderImg extends StatelessWidget {
   final Datum anime;
-  const _AnimeSliderImg({required this.anime});
+  final String heroId;
+  const _AnimeSliderImg({required this.anime, required this.heroId});
 
   
   @override
   Widget build(BuildContext context) {
+
+    anime.node.heroId = heroId;
     
     String imagen = 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png';
     if (anime.node.fullPosterImg){
@@ -95,14 +98,17 @@ class _AnimeSliderImg extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () => Navigator.pushNamed(context, 'details', arguments: anime.node),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: FadeInImage(
-                      placeholder: const AssetImage('assets/loading.gif'), 
-                      image: NetworkImage(imagen),
-                      fit: BoxFit.cover,
-                      height: 190,
-                      width: 130,
+                  child: Hero(
+                    tag: anime.node.heroId!,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: FadeInImage(
+                        placeholder: const AssetImage('assets/loading.gif'), 
+                        image: NetworkImage(imagen),
+                        fit: BoxFit.cover,
+                        height: 190,
+                        width: 130,
+                      ),
                     ),
                   ),
                 ),

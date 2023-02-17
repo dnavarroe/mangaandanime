@@ -16,6 +16,7 @@ class DetailsScreen extends StatelessWidget {
 
     return    Scaffold(
       body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         slivers: [
 
           _AppbarMov(anime: anime,),

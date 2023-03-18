@@ -1,4 +1,4 @@
-package com.example.animes_and_manga
+package com.danielnavarro.flutteranimes_and_manga
 
 import io.flutter.embedding.android.FlutterActivity
 

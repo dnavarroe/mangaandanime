@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.animes_and_manga">
+    package="com.danielnavarro.flutteranimes_and_manga">
+   <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="animes_and_manga"
+        android:label="Animes y Manga"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
